@@ -5,7 +5,9 @@
 
 # This is a full line comment
 
-from operator import floordiv, truediv #operator interface functions
+from operator import floordiv, truediv
+from posixpath import split
+from re import I #operator interface functions
 
 print ('Hello, world!') # This is a trailing commentpyenv versions
 
@@ -90,3 +92,188 @@ print(1!=2)
 print(1 is 1)
 print(1 is not 1)
 print([]is[])
+#typecasting
+#int to float
+f1 = float(1)
+print (f1)
+#float to int
+i1 = int(f1)
+print (i1)
+#int or float to string using string intializer
+s1 = str(1)
+print(s1)
+print(str(1.0))
+print(str(False))
+
+#immutable: meaning that it cannot be changed
+my_str = 'testing'
+print(id(my_str))
+cap_str = my_str.capitalize()
+print(cap_str)
+my_str = 'test_02'
+print(id(my_str))
+print(id('testing'))
+# len function
+print(len(my_str))
+#indexing and slicing
+print(my_str[0:7]) #index value of 2
+print(my_str[len(my_str)-1]) # print the string index where len-1
+#print(my_str[8]) # it errors out when un indexed value is being requested from the string and results index out of range.
+print(my_str[0:3]) #slicing the string per index values
+print(my_str[1:]) # [index:] gives the rest of the string values after the given index value
+print(my_str[1:6:2])# step value range([start,] stop [, step])
+print(my_str[::-1])#step option is stepping backward by using a negative step value.We can reverse an entire string by leaving off the start and end indexes and setting the step value to -1:
+#Lists
+list_l1 = [1,2.0,'three', True] #Lists are heterogenous(can contain any types) and also indexed
+print(list_l1[3])
+l_l1 = print(len(list_l1))
+print(list_l1[0:l_l1])
+list_l1[1] = "l1" #we can modify the list unlike strings.
+print(list_l1)
+list_l1 += ['a','b','c','d','e'] #concanate lists
+print(list_l1)
+list_l1[2:5]= [1,2,3,4,5]#slicing and assignment
+print(list_l1)
+#removing a section of the list by assigning empty list to the slice
+list_l1[3:] = ''
+print(list_l1)
+#other way of removing the list is by using del function
+del list_l1[0]
+print(list_l1)
+#One thing to note about del is that it will remove the entire list variable if we don't pass it an index:
+del list_l1 #list is deleted
+#list functions and methods
+list_l2 = [1,2,3,'a','b','c']
+#add or append to list
+list_l2.append('d')
+print(list_l2)
+#insert an item at a particular index
+list_l2.insert(3, 4)
+print(list_l2)
+#index method
+print(list_l2.index('b'))
+#The in and not in Operators
+print(4 in list_l2)
+print(5 in list_l2)
+print(6 not in list_l2)
+#sort and reverse functions 
+list_l3 = [4,6,2,7,9]
+print(sorted(list_l3))
+print(list(reversed(list_l3))) #The reversed function doesn't return a list, but typecasting works for the list type also, and when we have a list iterator we can turn it back into a list using the list function:
+#Tuples: An immutable sequence type: we can concanate but cannot change the original tuple that we created.
+point = (3.0,4)
+print(point)
+point = point + (5.0,)
+print(point)
+#One interesting characteristic of tuples is that we can unpack them into multiple variables at the same time:
+x, y, z = point
+print(x,y,z)
+#dictionaries
+ages = {'kevin':20, 'rob':43, 'sam': 34}
+print(ages)
+print(ages['kevin'])#read values from the dict subscripting using the key
+ages['tom']=67
+print(ages)
+del ages['tom'] #items can be removed from a dict using the del statemtn
+print(ages)
+#in and out operators only work with keys and not values
+print('rob' in ages)
+print(20 in ages)#doesn't work with values and prints false.
+#dict methods
+print(ages.keys())
+print(list(ages.keys()))#cast a dict to list type
+print(ages.values())#values 
+print(ages.items())#each item in dict is a key:value
+#String Encoding and Functions
+print(ord('a'))
+print(chr(8482))
+#more string methods
+eg_s1 = "testing"
+print(eg_s1.lower())
+print(eg_s1.upper())
+print(eg_s1.capitalize())
+print("12".isnumeric())
+print("a23".isalnum())
+#splitting and joining strings
+phrase = "This is a simple source code"
+words = phrase.split() #space is the default delimiter
+print(words)
+url = "https://learn.acloud.guru/course/advanced-perspective-of-classes-and-object-oriented-programming-in-python/overview"
+course = url.split("/")[-2]
+print(course)
+#join method
+p1 = ",".join(words) #joins the words with , as limiter and we can also have a space character so that there is a space between each word while its joining
+print(p1)
+lines = ['First line', 'Second line', 'Third line']
+p2 = "\n".join(lines)
+print(p2)
+#format method : The format method allows us to place {} segments into a string and then have values added into those positions:
+print("Hello, my name is {}, and I really enjoy {}. Have a nice day!".format('Keith', 'Python'))
+print("Hello, my name is {0}, and I really enjoy {1}. Have a nice day! - {0}".format('Keith', 'Python'))
+
+#if and else statements
+#python by default uses four space identation for separation of a block
+
+if "a"=="b":
+    print("true")
+else:
+    print("false")
+
+#multiple conditions: elif
+
+if 5<=3:
+    print("true-1")
+elif 4<=4:
+    print("true-2")
+elif 2<=3:
+    print("true-3")
+else:
+    print("true-4")
+
+#pass statement: The pass statement is what is known as a null operation. Absolutely nothing happens when we execute a pass statement, but they are useful as a code placeholder:
+if 1+1 == 2:
+    print(True)
+    pass #do nothing: place holder to provide context for future use
+if 1-1 == 0:
+    print(True)
+
+#while loop
+i = 0
+while i <=4:
+    i = i+1;
+    print("i=",i)
+
+#below is a infinte loop with while
+#while True:
+#    print("looping")
+
+#for loop:
+"""... for TEMP_VAR in SEQUENCE"""
+#List with for loop 
+colors = ["white",2,"yellow"]
+for color in colors:
+    print(color)
+#tuples with for loop
+point = (2.0,3,4.5)
+for value in point:
+    print(value)
+#dict with for loop
+dict_1 = {"white":1, "red":5, "yellow":4}
+for key in dict_1:
+    print(key)
+for key,value in dict_1.items():
+    print(key,value)
+for letter in "hello":
+    print(letter)
+
+"""some more examples with nesting loops & conditionals"""
+
+i=0
+while i<=5:
+    if i/2==2:
+        print(True)
+    elif i==2:
+        print("2")
+    i += 1
+
+    
