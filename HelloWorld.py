@@ -276,4 +276,85 @@ while i<=5:
         print("2")
     i += 1
 
-    
+#continue and break
+"""continue will cause to go directly to next iteration: skipping next statements for execution
+break will break the iteration or flow when hit"""
+colors = ["white","green","yellow","red","orange"]
+for color in colors:
+    if color=="yellow":
+        continue
+    elif color=="red":
+        break
+    print(color)
+
+#range
+"""Sometimes we want to iterate a set number of times, but we don't necessarily have a collection to work with. An easy way to achieve this is by creating a range object and iterating over it.
+A range is an immutable sequence type that defines a start, a stop, and a step value. The values within the range start with the beginning value and are incremented until the last value in the range is reached. This allows for ranges to be used in place of sequential lists while taking less memory and including more items."""
+my_range_1 = range(10)
+print(my_range_1)
+my_list_r1 = list(range(0,15))
+print(my_list_r1)
+#range can be used in the loops for self start, stop values as below
+for _ in range(0,15):
+    print("looping")
+
+
+#List comprehensions
+colors = ['red', 'blue', 'orange', 'green', 'yellow']
+warm_colors = [color.upper() for color in colors if color in ['red', 'orange', 'yellow']]
+print(warm_colors)
+
+"""The biggest difference here is that we don't need to create an empty list and append to it. Whatever we place to the left of the for statement within the comprehension will be returned as part of the final list.
+"""
+
+"""
+>>> colors = ['red', 'blue', 'orange', 'green', 'yellow']
+>>> uppercase_colors = []
+>>> for color in colors:
+...     uppercase_colors.append(color.upper())
+...
+>>> uppercase_colors
+['RED', 'BLUE', 'ORANGE', 'GREEN', 'YELLOW']
+"""
+
+#Functions:
+"""
+we can create functions in python using maning conventions lower case starting with a letter or underscore (_)
+"""
+def _add(n1,n2): # defining the function with two parameters
+    result=n1+n2
+    print(result)
+    return result #return the result
+    #If we don't explicitly declare a return value, then the result will be None
+
+print(_add(2,3)) # calling the function with arguments
+
+#Parameters vs Arguments
+"""
+When we're working with the definition of a function, then the variables defined in the function declaration are the "parameters." 
+When we're calling the function, the data that we provide for each parameter is the "argument."
+"""
+def can_drive(age, driving_age=16): # defining parameters with Default arguments
+    return age>=driving_age         # driving_age is the default argument
+"""
+Parameters with default arguments need to go at the end of the parameters list when defining the function so that positional arguments can still be used to call the function.
+"""
+print(can_drive(15))
+print(can_drive(24))
+
+#Recursion
+#Recursion is the practice of calling a function from within itself
+"""
+Example:
+Fibonacci Sequence (1, 1, 2, 3, 5, 8, etc.): In the Fibonacci sequence, the next number is always the sum of the previous two numbers in the sequence
+mathematically: f(n) = f(n-2) + f(n-1)
+"""
+
+def fib(n):
+    if n == 0:
+        return n
+    elif n == 1:
+        return n
+    return fib(n-2) + fib(n-1)
+
+print(fib(19))
