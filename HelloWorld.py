@@ -358,3 +358,50 @@ def fib(n):
     return fib(n-2) + fib(n-1)
 
 print(fib(19))
+
+#scopes
+
+def x_assgn():
+    x_scope = 5
+    return x_scope
+print(x_assgn())
+
+# print(x_scope) : this statement will print below error as the scopr of x_scope variable is only within the function
+"""
+Traceback (most recent call last):
+  File "/Users/dinesh/dinesh-learnings/python-learning-2021/HelloWorld.py", line 368, in <module>
+    print(x_scope)
+NameError: name 'x_scope' is not defined
+"""
+
+#namehiding scope
+
+y = 5 
+def x_y_assgn(y):
+    x = y
+    return x
+
+print(x_y_assgn(10))
+print(y)
+
+#lambdas
+#anonymous functions
+square_lambda = lambda num:num*num
+print(square_lambda(2))
+
+"""
+Filter(). This is a Python inbuilt library that returns only those values that fit certain criteria. 
+"""
+#filter(function, iterable)
+list_1 = [1,2,3,4,5,6,7,8,9]
+p_l1 = list(filter(lambda x: x%2 ==0, list_1)) #filter for even numbers in a list using lambda function and iterating with list items
+print(p_l1)
+
+"""
+map function
+Map(). This is another inbuilt python library with the syntax map(function, iterable).
+This returns a modified list where every value in the original list has been changed based on a function.
+"""
+s_l1 = list(map(lambda a: pow(a, 3), list_1)) # calculating cubes 
+print(s_l1)
+
