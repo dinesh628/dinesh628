@@ -12,6 +12,9 @@ df = pd.DataFrame({
 print(df)
 print("-----------------------------")
 
+#Higher Order Functions:
+# When a function or method takes a function as an argument (or returns a function), it is called a "higher-order function".
+
 #This function applies an operation to every element of the column.
 df['age'] = df['Birthyear'].apply(lambda x: 2021-x)
 print(df)
