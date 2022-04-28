@@ -1,0 +1,236 @@
+Relational Data: Rows in tables
+- Traditional
+- Hybrid: on-prem & cloud
+- Prescribed columns/schema
+- Query with SQL
+- Familiar business reporting
+Azure Relational Data Resources:
+- SQL server on Azure VM
+- Azure SQL DB
+- Azure DB for open source : MySQL, MariaDB, PostgreSQL
+- Azure Synapse Analytics
+
+Structured data: 
+- Rigid schema(defined ahead of time or schema on write)
+- same data for every entity 
+
+Non Relation Data:
+- NoSQL
+- Generally cloud-native
+- Semi-Structured
+- Schema on read
+- unstructred
+- Query with SQL and more
+- Sometimes "Scary to biz"
+
+Non-Relational Data Resources:
+- Cosmos DB - JSON documents
+    - SQL API & MongoDB API
+    - Gremlin Graph DB API
+    - Cassandra API
+- Azure Table Storage and API for it in Cosmos DB
+- Azure Blob Storage
+
+Semistructured and unstructured:
+- Flexible or no schema.
+- Data varies for each entity
+
+
+Storing Data: Forms and Formats:
+- Structured(rows and columns), Semi-Structured(documents, key-value,other), Unstructured(Blobs)
+- JSON, XML, YAML
+    - Semi-Structured
+    - Human-readable text
+    - Document databases: Cosmos DB
+    - Blob storage
+- Key-value and Wide-Column
+    - Semi-strctured
+    - Rows with schema-on-read
+    - Key-value: Azure Table Storage
+    - Wide-Column: Cassandra
+- Graph
+    - Semi-Structured
+    - Nodes for entities
+    - Edges for realtionships
+- Blob or Unstructured
+    - No schema
+    - May have metadata (eg:tags)
+
+
+Managing Data: Moving, Processing, Securing
+- Provision, Deploy, Secure
+    - Define and set up infra
+    - Put data assets on infra
+    - set and enforce access
+- Processing the data: batch or stream processing
+    - Gather up data or process real-time in pipelines
+    - etl 0R elt
+    - Batch & Streaming
+    - Batch:
+        - Data collected in a group
+        - Processing when cheap/convenient
+        - Extract-Transform-load(ETL)
+        - Dirty data can impact job success
+        - Good for deep analysis vs real time
+    - Streaming:
+        - Real time or "micro-batch" processing
+        - Latency measured in milliseconds
+        - Event-driven ELT instead of ETL
+        - Tolerant of non-confirming data
+        - Typical access only to recent data
+- Pipeline: orchestrator for data processing
+- Big Data: 3 V's: Velocity=speed at which data arrives, Volume=big and Variety=diff kinds of data
+- Transform Data
+    - Manipulate raw data to conform to destination schema or use
+
+Apply Tools od the Data Trade:
+- Provision, Secure, Deploy
+    - ARM templates
+    - Console: PowerShell, Azure CLI
+    - Azure Portal
+    - Application Code
+    - SQL Server Management Studio
+- SQL Database Admin
+    - SQL Server Mangement Studio
+    - Azure Portal
+- Defining and Querying Data
+    - Azure Data Studio
+    - SQL Server Management Studio
+    - Application Code
+
+Comparing Cloud Data Workloads:
+- Transactional Workloads
+    - OLTP:Online Transactional Processing
+    - Operational data is processed in short, precise, isolated actions. Optimized for speed and accuracy within the interaction.
+- Analytical Workloads
+    - OLAP: Real-Time (Online Analytical Processing)
+    - Larger, richer data sets optimized for decision support and complex questions posed of the data
+- Industry data
+    - Master Data
+    - Industry or domain specific data sets that change     infrequently.
+- HTAP: Hybrid transactional analytic processing
+    - Refers to aspects of supporting both transactionl and analytical workloads over the same set of data.
+
+Exploring Data warehouses, Data Lakes and Data swamps:
+- Modern Data warehouse:
+    - Combines internal and external data in multiple forms into a unified solution for analytics
+- Data Lakes:
+    - Captures real time and external data into an organized data store that can be queries directly via a modern data warehouses.
+
+Data Visualization adn Analytics
+- Reporting of anytics: eg: Power BI tool
+    - Bar & column chart
+    - Line chart
+    - Tree Map
+    - Scatter Chart
+    - Bubble and Dot Plot Charts
+    - Cross Reference: Matrix and key Influencer
+
+Azure SQL, NoSQL, MySQL, YourSQL
+- Row, Partition and primary keys
+- Schema-on-read and schema-on-write
+- Azure Storage (debatable)
+- Most Azure Data Resources are Paas
+    - Exceptions:
+        - SQL server or other on a VM
+        - Azure Storage (debatable)
+- Four Primary Types of Azure DB Resources
+    - Azure SQL DB Family
+    - Cosmos DB
+    - Azure Storage: Blobs and Tables
+- Open Source Relational:
+    - PostgresSQL
+    - MySQL
+    - MariaDB
+- OLTP: Online Transactional Processing (Transactional workloads)
+    - Operational data i.e. processed in short, precise, isolated actions. Optimized for speed and accuracy within the interaction.
+    - Strong Consistency: 
+        - How well or how quickly data is kept in sync with itself and with replicas if itself.
+        - When synching is enforced strictly then we called it as consistency.
+        - Strong consistency is required for ensuring transactional integrity.
+- OLAP: Online Analytical Processing (analytics workloads)
+    - Larger, richer datasets optimized for decision support and complex questions posed of the data.
+    - Eventual Consistency:
+        - It is impt that all related data stores & replicas be in sync, eventually.
+        - but the timing around capaturing the data is much more impt and outweighs the need to wait around for all systems to catch up even waiting is measured in milliseconds.
+        - eg: Predict risk of weather events or equipment failure.
+- Hybrid Scenarios:
+    - Many scenarios represent some combinations of both workload types
+
+Azure Storage
+- It's the services not the storage
+    - Encryption at rest
+    - Hot, cool, Archive Tiers
+    - Static Web site hosting and CDN(Content Delivery Network) 
+    - Managed High Performance - through caching
+    - Blob change Feed
+    - Storage Explorer
+    - Azure Files
+          - File sharing via URI or SMB protocol
+    - Message Queues
+    - Azure Table Storage
+    - AZCopy - tool for moving large volumes of blob data
+    - Azure File Sync
+- Azure Blob storage for Cognitive Services
+    - Use case: FishAngler mobil app where the user submits the image to the site and the system crops out the image by cutting out the face of fish casher and only uploades the image of fish to the blob storage - this is resolved by using the cognitive services and it make sures that the image contains the face of fish cathcer.
+        - Benefits of Blob storage
+            - Replication within Region
+            - Geo Redundancu
+            - Distributed access
+            - versioning 
+            - soft delete
+            - snapshots
+            - change feed
+            - Azure Data Lake Storage Gen2
+    - Azure Table Storage 
+        - pros
+            - Flexible, semi-structured data
+            - Simple to implement: no relationships or hierarchy
+            - Scales to billions of entries, upto 500TB of data
+            - Fast retrieval - if you have the row and parition keys
+        - cons
+            - Consistency and transactional integrity not guaranteed
+            - Difficult to filter and sort on non-key data
+            - Cosmos DB recommended for new implementations
+    
+    - Azure Files
+        - Azure Portal
+        - Storage Explorer
+        - Windos Explorers
+        - AzCopy utility
+        - Connect programatically
+        - Azures File sync
+        - Benefits:
+            - SMB protocol
+            - Store upto 100TB per account
+            - Seamless migration of existing apps
+            - Share data across both cloud & on-premises sources
+            - Leverage performances, security, availability, durability, scalability and geo-redundancy
+            - can host applications such as SQL Server and IIS
+
+Data Resource Management: Four alternative rules 
+- Securing Data
+    - The Azure SQL data by default blocks the connectivity to the world.
+    - Azure Cosmos DB and Azure storage the default is to enable broad access to everyone & everything.
+    - Connectivity to on-prem, vNet etc.
+    - Firewalls
+    - Connectivity from Private Endpoints
+    - Authentication: access keys
+    - Access Control, RBAC - IAM (Identity access management)
+    - Advanced Data security
+    - Encryption: TLS/TDE
+    - Fine-Grained control: Dynamic Data Masking, Row-Level security.
+
+- Provision and Deploy Data Resources in the Azure Portal
+Relational Data
+    - Provision and Deploy Options
+        - Azure Portal
+        - Powershell and Azure CLI
+        - ARM Templates
+    - 
+
+Cosmos DB:
+Azure Data Factory
+Azure Synapse Analytics
+Analytics in Power BI
+Conclusion
