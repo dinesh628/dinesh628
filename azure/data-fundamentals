@@ -225,12 +225,171 @@ Data Resource Management: Four alternative rules
 Relational Data
     - Provision and Deploy Options
         - Azure Portal
-        - Powershell and Azure CLI
+        - Powershell and Azure CLI(similar to linux/bash)
         - ARM Templates
-    - 
+            - JSON , Iaas
+    - Azure SQL DATABASE Port: 1433
+    - Azure PostgreSQL Port: 5432
+    - Azure DB for MySQL Server: 3306
+- Relational Data
+    - Normalized Relational Data
+        - Data is consistently formatted
+        - Normalized data is data that has been deliberately split up
+            into multiple tables in order to improve performance for write 
+            operations or to better ensure data consistency.
+        - Indexes in Relational Data
+            - Heap, Clustered Index
+            - The clustered indexes includes all of the columns of the original table.
+            -  Non-clustered indexes depends on clustered indexes to return column values in the data
+                because they typically store only the column or columns on which they're ordered.
+            - Covering index- a special kind of non-clustered index called a covering index.
+                other columns that you might commonly want to return. This prevents a round
+                trip to the clustered index, but it also increases the size of your non-clustered 
+                index, so its a trade off.
+            Hallmarks of Relational Database Management Systems:
+            - Simple Model & Operations: Non-hierarchical relathionships
+            - Dynamic Views/Projections: Data surfaced to the user changes dynamically
+            - Control over Schema: Pre-defined schema enforces data consistency & security
+            - Granular Security & Encryption: Data secured down to the row & column level
+            - Data Integrity & Less Redundancy: Transactional model paired with strong referential integrity
+            - Highly Sclable & Performant: Fast, set-based operations for transactions over larger datasets.
+    - Options for Relational Data Infra (On-premises, IaaS & Paas)
+        - on Premises:
+            - Highly regulated industries or need for tight control
+            - eg: SQL server or other RDBMS in physical data center.
+        - Hybrid or lift & shift scenarios:
+            - eg: SQL Server or other RDBMS on VM
+        - PaaS:
+            - Fully managed and flexible cloud-first architecture.
+            - eg: Azure SQL, MySQL, PostgresSQL, MariaDB
+    - Relational Data Services (Flavors in Azure)
+        - Azure Data Services Umbrella
+            - Azure SQL Database
+                - Single Database or Elastic Pool
+                    - Latest stable SSQL Server features
+                    - high availability: 99.99% 
+                    - Fast deployment and scalability
+                    - Advanced features such as threat detection, auditing and auto tune
 
-Cosmos DB:
-Azure Data Factory
-Azure Synapse Analytics
-Analytics in Power BI
-Conclusion
+                - Managed Instance (MI)
+                    - Multiple databases on one instance
+                    - High compatibility with SQL server
+                    - Supports traditional SQL logins
+                    - Easiest lift and shift from SQL Server on-premises.
+                - Database Migration Service (DMS) allows for fast migration of existing databases & applications
+                - SQL
+                    - DML (Data Manipulation Language)
+                        - Select, Insert, update, delete rows
+                    - DDL (Data Definition Language)
+                        - Creat, modify(ALTER), remove(DROP) tables
+                        - other objects such as views and stored procedures
+
+    - Cosmos DB
+        - data can be globally distributed 
+            - benefits - Disaster Recovery, faster responses
+        - NoSQL
+        - Guaranteed single-digit millisec response time
+        - 99.99% availability
+        - Backed by service level agreements
+        - Automatic and instant scalability
+        - Multi master global distribution
+        - one year free tier
+        - use cases: IoT, Gaming web, mobile apps, e-commerce, social networking, operational data, event-sourcing scenarios
+        - Easy migration from database sources like mongodb, gremiln graph etc to cosmos DB.
+
+    - JSON: Javascript object notation
+        - collection of key value paiurs
+            - collections are unordered
+            - an obj can be empty
+            - the key is always string
+
+    - API (Application programming Interface)
+        - SQL API
+            - JSON - "core" Cosmos DB
+            - MongoDB API
+                - BSON
+        - Cassandra API
+            - Wide column or column family
+            - CQL similar to SQL
+        - Table API
+            - Azure Table storage
+            - Multi-language support
+        - Gremlin/Graph API
+            - Apache Tinkerpop framework
+            - Query and visualize in Azure Data
+            - Explorer or Gremlin Console
+            
+    - Azure Data Factory (data integration tool for azure for ETL)
+        - The primary ETL orchestrator is Data Factory : data processing tools like databricks & HDInsight can be included in the data factory pipelines
+
+    - Modern Data Warehouses
+        - Azure Data Lake Gen2
+            - Blob storage optimized for analytics
+        - Azure HDInsight
+            - Open source, big data, massively parallel on spark
+        - Azure Synapse Analytics
+            - Comprehensive, massively parallel analytics service
+        - Azure Databricks
+            - Code in notebooks on Apache spark for processing, streaming, machine learning
+
+    - Azure Synapse Analytics
+        - Synapse SQL Pool:
+            - collection of servers running T-SQL and connected to Azure storage
+            - Up to 60 nodes run Data movement Service (DMS) to distribute work and run queries in parallel
+            - Can be paused to save money.
+        - Synapse Spark pool:
+            - Cluster of servers running Apache spark
+            - Interaction through Python, scala, SQL & C#
+            - Can run in conjunction with Synapse SQL pool
+        - PolyBase:
+            - Allows synapse to interact with additional data formats such as Parquet
+            - Provides a means for data ingestion from many external resources.
+        - Synpase Link:
+            - Allows for direct connection to Cosmos DB
+            - Enables near real-time analytics over operational data
+        - Synapse Pipelines:
+            - Built on the same platform as Azure Data Factory
+            - UI groups activities together into pipelines that can ingest, clean, transform, map and transfer data
+        - Synpase Studio:
+            - Web UI that enables data engineers to access Synapse Analytics tools
+            - Allows configuration, maintenance, and processing operations
+
+    - Power BI
+        - Power BI Desktop
+            - Connect & model data and create reports and visualizations
+        - Power BI service
+            - Publish and share datasets, reports and dashboards into workspaces
+        - Power BI Mobile
+            - Consume data via a mobile app
+
+    - Power BI Building blocks
+        - Datasets
+            - connectors
+        - Reports
+        - Visualizations
+            - Filters
+            - Paginated Reports
+        - Dashboards
+            - Canva
+            - Tiles
+        - Workspaces
+        - Stories
+        - Apps
+    - Techniques and Associated Visualization
+        - Descriptice Analytics
+            - Describe & answer questions about past events based on historical data
+        - Diagnostic Analytics
+            - Explain why something -- usually an anomaly -- appears in a set of data
+        - Predictive Analytics
+            - As the name implies, predict a future state based on trends and past events
+        - Prescriptice Analytics
+            - Assert actions required to achieve a goal or target, often through AI or ML
+        - Cognitive Analytics
+            - Draw inferences and new insights from existing data, relying heavily on AI and ML
+        - Visualizations Rely on Context
+            - Visualizations are not one-size fits all but a range of options for communication
+
+    
+    
+
+    
