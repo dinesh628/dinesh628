@@ -190,8 +190,8 @@ print(chr(8482))
 #more string methods
 eg_s1 = "testing"
 print(eg_s1.lower())
-print(eg_s1.upper())
-print(eg_s1.capitalize())
+print(eg_s1.upper())#full string will be capatilized unlike capitalize method
+print(eg_s1.capitalize())#only first character will be capatilized and rest will be in small caps
 print("12".isnumeric())
 print("a23".isalnum())
 #splitting and joining strings
@@ -360,7 +360,6 @@ def fib(n):
 print(fib(19))
 
 #scopes
-
 def x_assgn():
     x_scope = 5
     return x_scope

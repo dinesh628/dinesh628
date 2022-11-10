@@ -107,7 +107,7 @@ Comparing Cloud Data Workloads:
     - Larger, richer data sets optimized for decision support and complex questions posed of the data
 - Industry data
     - Master Data
-    - Industry or domain specific data sets that change     infrequently.
+    - Industry or domain specific data sets that change infrequently.
 - HTAP: Hybrid transactional analytic processing
     - Refers to aspects of supporting both transactionl and analytical workloads over the same set of data.
 
@@ -117,7 +117,7 @@ Exploring Data warehouses, Data Lakes and Data swamps:
 - Data Lakes:
     - Captures real time and external data into an organized data store that can be queries directly via a modern data warehouses.
 
-Data Visualization adn Analytics
+Data Visualization and Analytics
 - Reporting of anytics: eg: Power BI tool
     - Bar & column chart
     - Line chart
@@ -175,7 +175,7 @@ Azure Storage
     - Use case: FishAngler mobil app where the user submits the image to the site and the system crops out the image by cutting out the face of fish casher and only uploades the image of fish to the blob storage - this is resolved by using the cognitive services and it make sures that the image contains the face of fish cathcer.
         - Benefits of Blob storage
             - Replication within Region
-            - Geo Redundancu
+            - Geo Redundancy
             - Distributed access
             - versioning 
             - soft delete
@@ -388,8 +388,3 @@ Relational Data
             - Draw inferences and new insights from existing data, relying heavily on AI and ML
         - Visualizations Rely on Context
             - Visualizations are not one-size fits all but a range of options for communication
-
-    
-    
-
-    
